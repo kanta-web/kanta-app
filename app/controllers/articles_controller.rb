@@ -26,5 +26,11 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title,:content)
   end
 
+  def edit
+    @article=Article.find(params[:id])
+  end
+
+  def update
+  end
   
 end
