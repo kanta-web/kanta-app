@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
 before_action:set_article,only:[:show,:edit,:update]
+before_action:authenticate_user!,only:[:new,:create,:edit,:update,:destroy]
 
   def index
     @articles = Article.all
@@ -40,13 +41,13 @@ before_action:set_article,only:[:show,:edit,:update]
     redirect_to root_path,notice: '削除に成功しました'
   end
 
+  def set_article
+    @article=Article.find(params[:id])
+  end
+
   private
   def article_params
     params.require(:article).permit(:title,:content)
-  end
-
-  def set_article
-    @article=Article.find(params[:id])
   end
 
 end
