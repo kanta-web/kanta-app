@@ -13,8 +13,8 @@
         .dropdown
           = image_tag 'actions.svg', class: 'dropbtn'
           .dropdown-content.mini
-            = link_to '編集する', edit_article_path(@article)
-            = link_to '削除する', article_path(@article), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
+            = link_to '編集するよ', edit_article_path(@article)
+            = link_to '削除するよ', article_path(@article), data: { method: 'delete', confirm: '本当に削除してもよいかい？' }
   .article_content
     = @article.content
   - if user_signed_in?
